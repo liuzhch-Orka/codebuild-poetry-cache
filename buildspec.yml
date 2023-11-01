@@ -1,0 +1,10 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - DOCKER_BUILDKIT=1 docker build -t poetrycache:latest .
+
+cache:
+  paths:
+    - "/root/.cache/pip/**/*"
+    - "/root/.cache/pypoetry/virtualenvs/**/*"
