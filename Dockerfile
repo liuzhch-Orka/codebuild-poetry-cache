@@ -4,10 +4,8 @@ RUN tree -d -L 5 /root/.cache/pypoetry/virtualenvs
 RUN pip install poetry
 WORKDIR /codebuild-poetry-cache
 COPY pyproject.toml poetry.lock ./
-RUN poetry env use 3.10.13
-RUN tree -d -L 5 /root/.cache/pypoetry/virtualenvs
+RUN poetry config virtualenvs.create false
 RUN --mount=type=ssh poetry install -vvv --without dev
-RUN tree -d -L 5 /root/.cache/pypoetry/virtualenvs
 RUN poetry run python -c "import django; print(django)"
 COPY . .
 RUN tree -d -L 5 /root/.cache/pypoetry/virtualenvs
