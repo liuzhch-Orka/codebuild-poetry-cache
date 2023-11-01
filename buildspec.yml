@@ -6,4 +6,4 @@ phases:
 
 cache:
   paths:
-    - "/root/.cache/pypoetry/virtualenvs/**/*"
+    - /root/.cache/pypoetry/virtualenvs/
