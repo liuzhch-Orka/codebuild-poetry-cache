@@ -3,6 +3,9 @@ phases:
   build:
     commands:
       - DOCKER_BUILDKIT=1 docker build -t poetrycache:latest .
+      - apt-get update
+      - apt-get install -y python3
+      - python3 -m pip install poetry django numpy pytest pytest-django
 
 cache:
   paths:
